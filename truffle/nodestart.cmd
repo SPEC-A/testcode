@@ -1,0 +1,1 @@
+geth --networkid 1234 --mine --miner.threads 2 --datadir "./" --nodiscover --ws --ws.port "9545" --graphql.corsdomain "*" --nat "any" --ws.api eth,web3,personal,net --allow-insecure-unlock --password ./password.sec
