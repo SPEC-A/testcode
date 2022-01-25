@@ -3,7 +3,7 @@
 const certificate = artifacts.require("certificate");
 const rewire = require("rewire");
 const generateRandomCode = rewire("./generateRandomCode");
-const randfunc = rewire("./randfunc"); //rewire 의존성 주입(random 값 매번 바꿔줘야 하므로)
+const randfunc = rewire("./randName"); //rewire 의존성 주입(random 값 매번 바꿔줘야 하므로)
 
 // var web = new web(new web.providers.HttpProvider("http://localhost:9545"));
 // const compiled_contract = require("../build/contracts/certificate.json");
