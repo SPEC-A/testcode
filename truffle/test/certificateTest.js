@@ -12,18 +12,18 @@ const randfunc = rewire("./randName"); //rewire 의존성 주입(random 값 매�
 // setInterval(generateRandomCode, 10000);
 
 var stTime = new Date().getTime();
+var count = 0;
 
 describe("certificate", function () {
   while (new Date().getTime() < stTime + 10000) {
     // 10초 후에 반복
-    if (stTime > 20000) {
-      it("후보자 랜덤으로 등록", async () => {
-        return certificate.deployed().then((instance) => {
-          instance.issue(randfunc, generateRandomCode);
-          return console.log(instance.getCertificate);
-        });
+    count++;
+    it("인증서 랜덤으로 등록", async () => {
+      return certificate.deployed().then((instance) => {
+        instance.issue(randfunc, generateRandomCode);
+        return console.log(instance.getCertificate);
       });
-    }
-    break;
+    });
+    if (count == 20) break;
   }
 });
