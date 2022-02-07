@@ -11,19 +11,19 @@ const randfunc = rewire("./randName"); //rewire 의존성 주입(random 값 매�
 // setInterval(randName, 10000);
 // setInterval(generateRandomCode, 10000);
 
-//var seconds = new Date().getSeconds(); // 초를 구하고
-
-var value = 0;
 var stTime = new Date().getTime();
 
 describe("certificate", function () {
   while (new Date().getTime() < stTime + 10000) {
     // 10초 후에 반복
-    it("후보자 랜덤으로 등록", async () => {
-      return certificate.deployed().then((instance) => {
-        instance.issue(randfunc, generateRandomCode);
-        return console.log(instance.getCertificate);
+    if (stTime > 20000) {
+      it("후보자 랜덤으로 등록", async () => {
+        return certificate.deployed().then((instance) => {
+          instance.issue(randfunc, generateRandomCode);
+          return console.log(instance.getCertificate);
+        });
       });
-    });
+    }
+    break;
   }
 });
