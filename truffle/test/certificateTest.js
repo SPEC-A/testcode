@@ -24,6 +24,6 @@ describe("certificate", function () {
         return console.log(instance.getCertificate);
       });
     });
-    if (count == 20) break;
+    if (count == 100) break; //인증서 100개 발급 시 break
   }
 });
